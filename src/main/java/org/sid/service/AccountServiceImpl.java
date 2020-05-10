@@ -22,7 +22,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AppUser saveUser(String username, String password, String confirmedPassword ,String phoneNumber, String gender , String address) {
+    public AppUser saveUser(String username, String password, String confirmedPassword ,String phoneNumber, String gender , String address, String cin) {
         AppUser  user=appUserRepository.findByUsername(username);
         if(user!=null) throw new RuntimeException("User already exists");
         if(!password.equals(confirmedPassword)) throw new RuntimeException("Please confirm your password");
@@ -32,6 +32,7 @@ public class AccountServiceImpl implements AccountService {
         appUser.setGender(gender);
         appUser.setPhoneNumber(phoneNumber);
         appUser.setAddress(address);
+        appUser.setCin(cin);
         appUser.setPassword(bCryptPasswordEncoder.encode(password));
         appUser.setConfirmedPassword(bCryptPasswordEncoder.encode(confirmedPassword));
        
@@ -41,7 +42,7 @@ public class AccountServiceImpl implements AccountService {
     }
     @Override
 	public AppUser saveFournisseur(String username, String password, String confirmedPassword, String phoneNumber,
-			String gender, String address) {
+			String gender, String address , String cin) {
 		AppUser  user=appUserRepository.findByUsername(username);
         if(user!=null) throw new RuntimeException("Fournisseur already exists");
         if(!password.equals(confirmedPassword)) throw new RuntimeException("Please confirm your password");
@@ -51,6 +52,7 @@ public class AccountServiceImpl implements AccountService {
         appUser.setGender(gender);
         appUser.setPhoneNumber(phoneNumber);
         appUser.setAddress(address);
+        appUser.setCin(cin);
         appUser.setPassword(bCryptPasswordEncoder.encode(password));
         appUser.setConfirmedPassword(bCryptPasswordEncoder.encode(confirmedPassword));
        
@@ -75,6 +77,7 @@ public class AccountServiceImpl implements AccountService {
         AppUser appUser=appUserRepository.findByUsername(username);
         AppRole appRole=appRoleRepository.findByRoleName(rolename);
         appUser.getRoles().add(appRole);
+        
     }
 
 	

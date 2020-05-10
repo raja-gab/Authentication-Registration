@@ -23,6 +23,9 @@ public class AppUser {
     @Column()
     private String phoneNumber;
     
+    @Column()
+    private String cin;
+    
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     
