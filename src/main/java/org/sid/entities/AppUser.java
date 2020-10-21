@@ -17,6 +17,9 @@ public class AppUser {
     private Long id;
     @Column(unique = true)
     private String username;
+    
+    @Column
+    private String mat ;
     @Column
     private String address;
     
@@ -33,7 +36,10 @@ public class AppUser {
     private boolean actived;
     
     private String confirmedPassword; 
-    
+    @Column()
+    private String nom;
+    @Column()
+    private String prenom;
     @Column()
     private String gender;
     
@@ -45,4 +51,7 @@ public class AppUser {
     
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<AppRole> roles=new ArrayList<>();
+    public void setMat(String mat) {
+    	this.mat = this.username;
+    }
 }

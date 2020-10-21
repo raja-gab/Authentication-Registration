@@ -27,6 +27,7 @@ public class AccountServiceImpl implements AccountService {
         if(user!=null) throw new RuntimeException("User already exists");
         if(!password.equals(confirmedPassword)) throw new RuntimeException("Please confirm your password");
         AppUser appUser=new AppUser();
+        appUser.setMat(username);
         appUser.setUsername(username);
         appUser.setActived(true);
         appUser.setGender(gender);
@@ -47,6 +48,7 @@ public class AccountServiceImpl implements AccountService {
         if(user!=null) throw new RuntimeException("Fournisseur already exists");
         if(!password.equals(confirmedPassword)) throw new RuntimeException("Please confirm your password");
         AppUser appUser=new AppUser();
+        appUser.setMat(username);
         appUser.setUsername(username);
         appUser.setActived(true);
         appUser.setGender(gender);

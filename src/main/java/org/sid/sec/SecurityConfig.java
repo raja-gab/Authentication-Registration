@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         
         http.authorizeRequests().antMatchers("/login/**","/registerUser/**","/registerFour/**").permitAll();
       
-        http.authorizeRequests().antMatchers("/appUsers/**","/appRoles/**").permitAll();
+        http.authorizeRequests().antMatchers("/appUsers/**","/appRoles/**" , "/putClient/**","/putFour/**").permitAll();
         
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
